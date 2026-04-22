@@ -5,98 +5,129 @@
   <style>
     body {
       font-family: Arial;
-      background: #f5f5f5;
+      background: #f2f2f2;
       text-align: center;
       padding: 20px;
     }
+
     .box {
       background: white;
-      padding: 25px;
+      padding: 30px;
       border-radius: 12px;
-      max-width: 420px;
+      max-width: 400px;
       margin: auto;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
     }
-    .alert {
-      color: red;
-      font-weight: bold;
-      margin-bottom: 10px;
+
+    .progress {
+      height: 10px;
+      background: #ddd;
+      border-radius: 5px;
+      margin-bottom: 20px;
     }
+
+    .bar {
+      height: 10px;
+      background: #28a745;
+      width: 20%;
+      border-radius: 5px;
+    }
+
     select, button {
       width: 100%;
       padding: 12px;
-      margin: 10px 0;
+      margin-top: 15px;
       border-radius: 6px;
-      font-size: 14px;
     }
+
     button {
       background: #28a745;
       color: white;
       border: none;
-      font-size: 16px;
       font-weight: bold;
     }
-    .proof {
-      font-size: 13px;
-      color: gray;
-      margin-top: 10px;
+
+    .hidden {
+      display: none;
     }
   </style>
 </head>
+
 <body>
 
 <div class="box">
 
   <h2>🧪 Immunity Test</h2>
 
-  <p class="alert">⚠️ 87% of people have weak immunity</p>
+  <div class="progress">
+    <div class="bar" id="bar"></div>
+  </div>
 
-  <p>Take this 30-sec test to check your level</p>
+  <form id="form" action="/result" method="post">
 
-  <form action="/result" method="post">
+    <div class="step" id="step1">
+      <p>Do you get sick often?</p>
+      <select name="q1">
+        <option value="1">Yes</option>
+        <option value="3">Sometimes</option>
+        <option value="5">No</option>
+      </select>
+      <button type="button" onclick="next(1)">Next</button>
+    </div>
 
-    <p>Do you get sick often?</p>
-    <select name="q1">
-      <option value="1">Yes</option>
-      <option value="3">Sometimes</option>
-      <option value="5">No</option>
-    </select>
+    <div class="step hidden" id="step2">
+      <p>Do you sleep well?</p>
+      <select name="q2">
+        <option value="1">No</option>
+        <option value="3">Sometimes</option>
+        <option value="5">Yes</option>
+      </select>
+      <button type="button" onclick="next(2)">Next</button>
+    </div>
 
-    <p>Do you sleep well?</p>
-    <select name="q2">
-      <option value="1">No</option>
-      <option value="3">Sometimes</option>
-      <option value="5">Yes</option>
-    </select>
+    <div class="step hidden" id="step3">
+      <p>Stress level?</p>
+      <select name="q3">
+        <option value="1">High</option>
+        <option value="3">Medium</option>
+        <option value="5">Low</option>
+      </select>
+      <button type="button" onclick="next(3)">Next</button>
+    </div>
 
-    <p>Stress level?</p>
-    <select name="q3">
-      <option value="1">High</option>
-      <option value="3">Medium</option>
-      <option value="5">Low</option>
-    </select>
+    <div class="step hidden" id="step4">
+      <p>Healthy diet?</p>
+      <select name="q4">
+        <option value="1">No</option>
+        <option value="3">Sometimes</option>
+        <option value="5">Yes</option>
+      </select>
+      <button type="button" onclick="next(4)">Next</button>
+    </div>
 
-    <p>Healthy diet?</p>
-    <select name="q4">
-      <option value="1">No</option>
-      <option value="3">Sometimes</option>
-      <option value="5">Yes</option>
-    </select>
-
-    <p>Energy level?</p>
-    <select name="q5">
-      <option value="1">Low</option>
-      <option value="3">Medium</option>
-      <option value="5">High</option>
-    </select>
-
-    <button type="submit">Check My Immunity</button>
+    <div class="step hidden" id="step5">
+      <p>Energy level?</p>
+      <select name="q5">
+        <option value="1">Low</option>
+        <option value="3">Medium</option>
+        <option value="5">High</option>
+      </select>
+      <button type="submit">See My Result</button>
+    </div>
 
   </form>
 
-  <p class="proof">✔️ 12,487 people tested this week</p>
-
 </div>
+
+<script>
+function next(step) {
+  document.getElementById("step"+step).classList.add("hidden");
+  document.getElementById("step"+(step+1)).classList.remove("hidden");
+
+  let percent = (step+1)*20;
+  document.getElementById("bar").style.width = percent + "%";
+}
+</script>
 
 </body>
 </html>
