@@ -1,40 +1,82 @@
-<form action="/result" method="post">
-  <h2>Immunity Test</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Immunity Test</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f5f5f5;
+      text-align: center;
+      padding: 40px;
+    }
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+    }
+    button {
+      background: #28a745;
+      color: white;
+      border: none;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
 
-  <p>Do you get sick often?</p>
-  <select name="q1">
-    <option value="1">Yes</option>
-    <option value="3">Sometimes</option>
-    <option value="5">No</option>
-  </select>
+<div class="box">
+  <h2>🧪 Immunity Test</h2>
 
-  <p>Do you sleep well?</p>
-  <select name="q2">
-    <option value="1">No</option>
-    <option value="3">Sometimes</option>
-    <option value="5">Yes</option>
-  </select>
+  <form action="/result" method="post">
 
-  <p>Stress level?</p>
-  <select name="q3">
-    <option value="1">High</option>
-    <option value="3">Medium</option>
-    <option value="5">Low</option>
-  </select>
+    <p>Do you get sick often?</p>
+    <select name="q1">
+      <option value="1">Yes</option>
+      <option value="3">Sometimes</option>
+      <option value="5">No</option>
+    </select>
 
-  <p>Healthy diet?</p>
-  <select name="q4">
-    <option value="1">No</option>
-    <option value="3">Sometimes</option>
-    <option value="5">Yes</option>
-  </select>
+    <p>Do you sleep well?</p>
+    <select name="q2">
+      <option value="1">No</option>
+      <option value="3">Sometimes</option>
+      <option value="5">Yes</option>
+    </select>
 
-  <p>Energy level?</p>
-  <select name="q5">
-    <option value="1">Low</option>
-    <option value="3">Medium</option>
-    <option value="5">High</option>
-  </select>
+    <p>Stress level?</p>
+    <select name="q3">
+      <option value="1">High</option>
+      <option value="3">Medium</option>
+      <option value="5">Low</option>
+    </select>
 
-  <button type="submit">Check My Immunity</button>
-</form>
+    <p>Healthy diet?</p>
+    <select name="q4">
+      <option value="1">No</option>
+      <option value="3">Sometimes</option>
+      <option value="5">Yes</option>
+    </select>
+
+    <p>Energy level?</p>
+    <select name="q5">
+      <option value="1">Low</option>
+      <option value="3">Medium</option>
+      <option value="5">High</option>
+    </select>
+
+    <button type="submit">Check My Immunity</button>
+
+  </form>
+</div>
+
+</body>
+</html>
