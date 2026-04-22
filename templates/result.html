@@ -1,31 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Your Result</title>
+<meta charset="UTF-8">
+<title>Your Result</title>
+
+<style>
+body{
+font-family:Arial;
+background:#0f172a;
+color:white;
+text-align:center;
+padding:40px;
+}
+
+.box{
+background:#111827;
+padding:30px;
+border-radius:20px;
+max-width:400px;
+margin:auto;
+}
+
+.btn{
+background:red;
+color:white;
+padding:15px;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+margin-top:20px;
+}
+</style>
 </head>
-<body style="text-align:center; font-family:Arial; padding:30px;">
 
-  <h2>Your Score: {{ percentage }}%</h2>
+<body>
 
-  <h2 style="color:red;">
-    ⚠️ Your Immunity is WEAK
-  </h2>
+<div class="box">
 
-  <p>Your body is at risk of infections and fatigue.</p>
+<h2>Your Score: {{ percentage }}%</h2>
 
-  <h3>Recommended solution:</h3>
+<h2 style="color:#f87171;">
+⚠️ Your Immunity is Weak
+</h2>
 
-  <p style="max-width:400px; margin:auto;">
-    Natural immunity booster used by thousands of people.
-  </p>
+<p>Your body is at risk of fatigue and illness.</p>
 
-  <p style="color:red;">🔥 Limited offer today only</p>
+<p style="color:#f87171;">🔥 Limited offer today only</p>
 
-  <a href="YOUR_AFFILIATE_LINK_HERE">
-    <button style="padding:15px; background:red; color:white; border:none; font-size:16px;">
-      Fix My Immunity Now
-    </button>
-  </a>
+<a href="YOUR_AFFILIATE_LINK_HERE">
+<button class="btn">Fix My Immunity Now</button>
+</a>
+
+</div>
 
 </body>
 </html>
