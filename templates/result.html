@@ -1,23 +1,35 @@
-<h2>Your Score: {{ percentage }}%</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Result</title>
+</head>
+<body style="text-align:center; font-family:Arial; padding:40px;">
 
-<h3 style="color:red;">
-⚠️ Your Immunity is Weak
-</h3>
+  <h2>Your Score: {{ percentage }}%</h2>
 
-<p>
-Based on your answers, your immune system needs urgent support.
-</p>
+  <h3 style="color:red;">
+    {{ result }}
+  </h3>
 
-<h3>What you should do:</h3>
+  <p>{{ advice }}</p>
 
-<ul style="text-align:left; max-width:300px; margin:auto;">
-  <li>Boost your vitamins</li>
-  <li>Improve sleep</li>
-  <li>Use natural immunity support</li>
-</ul>
+  <h3 style="margin-top:20px;">What you should do:</h3>
 
-<a href="YOUR_AFFILIATE_LINK_HERE">
-  <button style="padding:15px; background:red; color:white; border:none; margin-top:20px;">
-    Fix Your Immunity Now
-  </button>
-</a>
+  <ul style="text-align:left; max-width:300px; margin:auto;">
+    <li>Improve your sleep</li>
+    <li>Reduce stress</li>
+    <li>Take natural supplements</li>
+  </ul>
+
+  <p style="color:red; margin-top:20px;">
+    ⚠️ Limited offer – act now
+  </p>
+
+  <a href="YOUR_AFFILIATE_LINK_HERE">
+    <button style="padding:15px; background:red; color:white; border:none;">
+      Fix Your Immunity Now
+    </button>
+  </a>
+
+</body>
+</html>
