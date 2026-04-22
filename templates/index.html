@@ -1,132 +1,200 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Immunity Test</title>
-  <style>
-    body {
-      font-family: Arial;
-      background: #f2f2f2;
-      text-align: center;
-      padding: 20px;
-    }
+<meta charset="UTF-8">
+<title>Immunity Test</title>
 
-    .box {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      max-width: 400px;
-      margin: auto;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .progress {
-      height: 10px;
-      background: #ddd;
-      border-radius: 5px;
-      margin-bottom: 20px;
-    }
+<style>
 
-    .bar {
-      height: 10px;
-      background: #28a745;
-      width: 20%;
-      border-radius: 5px;
-    }
+body {
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
 
-    select, button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 15px;
-      border-radius: 6px;
-    }
+.container {
+  background:#111827;
+  padding:30px;
+  border-radius:20px;
+  width:100%;
+  max-width:400px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+  animation: fadeIn 0.6s ease;
+}
 
-    button {
-      background: #28a745;
-      color: white;
-      border: none;
-      font-weight: bold;
-    }
+h2 {
+  text-align:center;
+  margin-bottom:10px;
+}
 
-    .hidden {
-      display: none;
-    }
-  </style>
+.warning {
+  color:#f87171;
+  text-align:center;
+  font-size:14px;
+  margin-bottom:10px;
+}
+
+.progress {
+  height:6px;
+  background:#1f2937;
+  border-radius:10px;
+  margin:20px 0;
+}
+
+.bar {
+  height:6px;
+  background:#22c55e;
+  width:20%;
+  border-radius:10px;
+  transition:0.4s;
+}
+
+.step {
+  animation: slide 0.4s ease;
+}
+
+select {
+  width:100%;
+  padding:12px;
+  margin-top:15px;
+  border-radius:10px;
+  border:none;
+  background:#1f2937;
+  color:white;
+}
+
+button {
+  width:100%;
+  padding:14px;
+  margin-top:20px;
+  border-radius:12px;
+  border:none;
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover {
+  transform:scale(1.05);
+}
+
+.hidden {
+  display:none;
+}
+
+.loading {
+  text-align:center;
+}
+
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(20px);}
+  to {opacity:1;}
+}
+
+@keyframes slide {
+  from {opacity:0; transform:translateX(20px);}
+  to {opacity:1;}
+}
+
+</style>
 </head>
 
 <body>
 
-<div class="box">
+<div class="container">
 
-  <h2>🧪 Immunity Test</h2>
+<h2>🧪 Immunity Test</h2>
+<p class="warning">⚠️ 87% of people have weak immunity</p>
 
-  <div class="progress">
-    <div class="bar" id="bar"></div>
-  </div>
+<div class="progress"><div class="bar" id="bar"></div></div>
 
-  <form id="form" action="/result" method="post">
+<form id="form" action="/result" method="post">
 
-    <div class="step" id="step1">
-      <p>Do you get sick often?</p>
-      <select name="q1">
-        <option value="1">Yes</option>
-        <option value="3">Sometimes</option>
-        <option value="5">No</option>
-      </select>
-      <button type="button" onclick="next(1)">Next</button>
-    </div>
+<div class="step" id="step1">
+<p>Do you get sick often?</p>
+<select name="q1">
+<option value="1">Yes</option>
+<option value="3">Sometimes</option>
+<option value="5">No</option>
+</select>
+<button type="button" onclick="next(1)">Next</button>
+</div>
 
-    <div class="step hidden" id="step2">
-      <p>Do you sleep well?</p>
-      <select name="q2">
-        <option value="1">No</option>
-        <option value="3">Sometimes</option>
-        <option value="5">Yes</option>
-      </select>
-      <button type="button" onclick="next(2)">Next</button>
-    </div>
+<div class="step hidden" id="step2">
+<p>Do you sleep well?</p>
+<select name="q2">
+<option value="1">No</option>
+<option value="3">Sometimes</option>
+<option value="5">Yes</option>
+</select>
+<button type="button" onclick="next(2)">Next</button>
+</div>
 
-    <div class="step hidden" id="step3">
-      <p>Stress level?</p>
-      <select name="q3">
-        <option value="1">High</option>
-        <option value="3">Medium</option>
-        <option value="5">Low</option>
-      </select>
-      <button type="button" onclick="next(3)">Next</button>
-    </div>
+<div class="step hidden" id="step3">
+<p>Stress level?</p>
+<select name="q3">
+<option value="1">High</option>
+<option value="3">Medium</option>
+<option value="5">Low</option>
+</select>
+<button type="button" onclick="next(3)">Next</button>
+</div>
 
-    <div class="step hidden" id="step4">
-      <p>Healthy diet?</p>
-      <select name="q4">
-        <option value="1">No</option>
-        <option value="3">Sometimes</option>
-        <option value="5">Yes</option>
-      </select>
-      <button type="button" onclick="next(4)">Next</button>
-    </div>
+<div class="step hidden" id="step4">
+<p>Healthy diet?</p>
+<select name="q4">
+<option value="1">No</option>
+<option value="3">Sometimes</option>
+<option value="5">Yes</option>
+</select>
+<button type="button" onclick="next(4)">Next</button>
+</div>
 
-    <div class="step hidden" id="step5">
-      <p>Energy level?</p>
-      <select name="q5">
-        <option value="1">Low</option>
-        <option value="3">Medium</option>
-        <option value="5">High</option>
-      </select>
-      <button type="submit">See My Result</button>
-    </div>
+<div class="step hidden" id="step5">
+<p>Energy level?</p>
+<select name="q5">
+<option value="1">Low</option>
+<option value="3">Medium</option>
+<option value="5">High</option>
+</select>
+<button type="button" onclick="loading()">See My Result</button>
+</div>
 
-  </form>
+</form>
+
+<div id="loading" class="loading hidden">
+<h3>Analyzing your answers...</h3>
+<p>⚠️ Your results may surprise you...</p>
+</div>
 
 </div>
 
 <script>
-function next(step) {
-  document.getElementById("step"+step).classList.add("hidden");
-  document.getElementById("step"+(step+1)).classList.remove("hidden");
 
-  let percent = (step+1)*20;
-  document.getElementById("bar").style.width = percent + "%";
+function next(step){
+document.getElementById("step"+step).classList.add("hidden");
+document.getElementById("step"+(step+1)).classList.remove("hidden");
+document.getElementById("bar").style.width = ((step+1)*20)+"%";
 }
+
+function loading(){
+document.getElementById("form").classList.add("hidden");
+document.getElementById("loading").classList.remove("hidden");
+
+setTimeout(()=>{
+document.getElementById("form").submit();
+},2000);
+}
+
 </script>
 
 </body>
