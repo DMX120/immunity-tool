@@ -7,35 +7,51 @@
       font-family: Arial;
       background: #f5f5f5;
       text-align: center;
-      padding: 40px;
+      padding: 20px;
     }
     .box {
       background: white;
-      padding: 30px;
-      border-radius: 10px;
-      max-width: 400px;
+      padding: 25px;
+      border-radius: 12px;
+      max-width: 420px;
       margin: auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .alert {
+      color: red;
+      font-weight: bold;
+      margin-bottom: 10px;
     }
     select, button {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin: 10px 0;
-      border-radius: 5px;
+      border-radius: 6px;
+      font-size: 14px;
     }
     button {
       background: #28a745;
       color: white;
       border: none;
       font-size: 16px;
-      cursor: pointer;
+      font-weight: bold;
+    }
+    .proof {
+      font-size: 13px;
+      color: gray;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
 
 <div class="box">
+
   <h2>🧪 Immunity Test</h2>
+
+  <p class="alert">⚠️ 87% of people have weak immunity</p>
+
+  <p>Take this 30-sec test to check your level</p>
 
   <form action="/result" method="post">
 
@@ -77,6 +93,9 @@
     <button type="submit">Check My Immunity</button>
 
   </form>
+
+  <p class="proof">✔️ 12,487 people tested this week</p>
+
 </div>
 
 </body>
